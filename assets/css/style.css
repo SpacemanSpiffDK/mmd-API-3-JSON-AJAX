@@ -1,0 +1,77 @@
+/* 
+	CSS by Dan Høegh
+	UCN MMD 2019 
+*/
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: sans-serif;
+	padding: 5vw;
+	font-size: 1rem;
+	line-height: 1.4;
+}
+
+main {
+	display: block;
+    width: 600px;
+    margin: 0 auto;
+}
+
+#searchInput {
+	padding: 10px;
+	width: 340px;
+	display: inline-block;
+	margin: 0;
+	border: none;
+}
+
+#searchButton {
+	cursor: pointer;
+	padding: 10px 20px;
+	width: 220px;
+	display: inline-block;
+	margin: 0;
+	background-color: #aaffaa;
+	border: none;
+}
+
+#searchTool {
+    background-color: #f8f8f8;
+    padding: 20px;
+}
+
+#searchSpinner {
+	display: none;
+	margin: 50px auto;
+    width: 100%;
+    text-align: center;
+}
+
+#searchSpinner img {
+	width: 75px;
+	height: auto;
+}
+
+#searchSpinner.active {
+	display: block;
+}
+
+#resultCount {
+	margin: 20px 0;
+	font-style: italic;
+}
+
+#searchOutput h4 {
+	margin-bottom: 5px;
+}
+
+#searchOutput p {
+	margin-top: 5px;
+}
+
+.errorMsg {
+	color: #ff0000;
+}
