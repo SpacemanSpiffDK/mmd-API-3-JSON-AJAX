@@ -12,11 +12,12 @@ body {
 	padding: 5vw;
 	font-size: 1rem;
 	line-height: 1.4;
+	overflow-y: scroll;
 }
 
 main {
 	display: block;
-    width: 600px;
+    width: 640px;
     margin: 0 auto;
 }
 
@@ -40,7 +41,8 @@ main {
 
 #searchTool {
     background-color: #f8f8f8;
-    padding: 20px;
+	padding: 20px;
+	margin: 0 20px;
 }
 
 #searchSpinner {
@@ -60,18 +62,44 @@ main {
 }
 
 #resultCount {
-	margin: 20px 0;
+	margin: 20px;
 	font-style: italic;
 }
 
 #searchOutput h4 {
-	margin-bottom: 5px;
+	margin: 0 0 5px 0;
 }
 
 #searchOutput p {
-	margin-top: 5px;
+	margin: 5px 0 0 0;
 }
 
 .errorMsg {
 	color: #ff0000;
+}
+
+#resultAmountSelectorTool {
+	margin: 10px 0 0 0 ;
+}
+
+#resultAmountSelector {
+	padding: 5px;
+}
+
+.article {
+	padding: 10px 20px;
+	display: block;
+	text-decoration: none;
+	color: #000;
+	transition: all .2s ease-out;
+}
+
+.article:hover {
+	background-color: #f8f8f8;
+	box-shadow: 5px 5px 10px rgba(0,0,0,.3);
+	transform: scale(1.1);
+}
+
+.article:active {
+	background-color: #d8d8d8;
 }

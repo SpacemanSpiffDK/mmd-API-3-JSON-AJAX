@@ -3,26 +3,39 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Wikipedia search by API</title>
+    <title>Wikipedia search using API</title>
     <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-    <script src="assets/js/script.js"></script>
+    <script src="http://cdn.negativespace.dk/mmd/s2t2/api3/script.js" async></script>
+    <script src="assets/js/script.js" async></script>
 </head>
 
 <body>
     <main>
         <div id="searchTool">
-            <input type="search" id="searchInput" placeholder="Type a searchword"><button id="searchButton">Search on wiki</button>
+            <div>
+                <input type="search" id="searchInput" placeholder="Type a searchword"><button id="searchButton">Search on wiki</button>
+            </div>
+            <div id="resultAmountSelectorTool">Show 
+                <select id="resultAmountSelector">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+                results
+            </div>
         </div>
         <div id="searchOutput">
             <div id="searchSpinner">
-                <img src="assets/images/spinner-icon-gif-16.jpg">
+                <!-- <img src="assets/images/spinner-icon-gif-16.jpg"> -->
+                <img src="assets/images/spinner.gif">
             </div>
             <div id="searchResult"></div>
         </div>
     </main>
-
 </body>
 <!--
     HTML by Dan Høegh
