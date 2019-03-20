@@ -38,9 +38,17 @@ function doSearch(){
     let searchTerm = document.querySelector("#searchInput").value.trim(); // Get search term from input
     // check if searchterm is empty or just spaces
     if (searchTerm != ""){
-		setSpinner(true); // Turn on the spinner: call setSpinner with the parameter - true - so we're revealing the spinner
-        resultsClear(); // clear the results div
-        getDataWiki(searchTerm); // call the getDataWiki function, add searchTerm as parameter
+			setSpinner(true); // Turn on the spinner: call setSpinner with the parameter - true - so we're revealing the spinner
+			resultsClear(); // clear the results div
+			getDataWiki(searchTerm); // call the getDataWiki function, add searchTerm as parameter
+
+		// if (searchTerm == "pokemon"){
+		// 	poke.mon();
+		// } else {
+		// 	setSpinner(true); // Turn on the spinner: call setSpinner with the parameter - true - so we're revealing the spinner
+		// 	resultsClear(); // clear the results div
+		// 	getDataWiki(searchTerm); // call the getDataWiki function, add searchTerm as parameter
+		// }
     }
 }
 
