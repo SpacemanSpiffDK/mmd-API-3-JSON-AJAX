@@ -53,9 +53,9 @@ function doSearch(){
 }
 
 // spinner function, activate if parameter is true, deactivate if parameter is false
-function setSpinner(active){
+function setSpinner(isActive){
 	const spinner = document.querySelector("#searchSpinner"); // find the HTML element in DOM and assign that value to spinner
-	if (active){
+	if (isActive){
 		// if parameter true, activate spinner
 		spinner.classList.add("active");
 	} else {
