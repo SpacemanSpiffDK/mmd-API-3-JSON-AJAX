@@ -11,7 +11,6 @@ let showItemAmount = 5; // global variable!
 
 window.onload = function(){
     initSearchTool(); // When window is loaded, call initSearchTool()
-    // test comment
 }
 
 function initSearchTool(){
