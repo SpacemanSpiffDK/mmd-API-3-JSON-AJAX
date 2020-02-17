@@ -76,6 +76,7 @@ function getDataWiki(searchTerm){
             try {
                 data = JSON.parse(this.responseText); // parse (convert) the responseText to a JSON object in the variable "data"
                 outputResult(data); // call outputData adding the data variable (the JSON object) as parameter
+                // console.log(...data.query.search);
             } catch (error){
                 errorMessage(`Error parsing JSON: <span class="errorMsg">${error}</span>`); // If there's an error, the user is notified
             }
