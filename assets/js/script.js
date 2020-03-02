@@ -9,9 +9,7 @@
 
 let showItemAmount = 5; // global variable!
 
-window.onload = function(){
-    initSearchTool(); // When window is loaded, call initSearchTool()
-}
+initSearchTool(); // call initSearchTool()
 
 function initSearchTool(){
     // add eventlistener to search button
