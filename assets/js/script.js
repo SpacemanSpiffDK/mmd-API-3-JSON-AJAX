@@ -1,5 +1,5 @@
 // JS by Dan Høegh
-// UCN MMD 2019
+// UCN MMD 2020
 
 // This code is for educational purposes
 // All code decision are based on the current level of the students
@@ -7,7 +7,7 @@
 // Wiki URL
 // https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=20&srsearch=
 
-let showItemAmount = 5; // global variable!
+const showItemAmount = 5; // global variable!
 
 initSearchTool(); // call initSearchTool()
 
@@ -33,7 +33,7 @@ function initSearchTool(){
 }
 
 function doSearch(){
-    let searchTerm = document.querySelector("#searchInput").value.trim(); // Get search term from input
+    const searchTerm = document.querySelector("#searchInput").value.trim(); // Get search term from input
     // check if searchterm is empty or just spaces
     if (searchTerm != ""){
         // if (searchTerm == "pokemon"){
@@ -64,7 +64,7 @@ function resultsClear(){
 }
 
 function getDataWiki(searchTerm){
-    var xhttp = new XMLHttpRequest(); // Create the request (create an envelope for you "letter")
+    const xhttp = new XMLHttpRequest(); // Create the request (create an envelope for you "letter")
     // in onreadystatechange we decide what to do when the response comes back from the server
     xhttp.onreadystatechange = function() {
         // console.log(`readystatechange. readyState: ${this.readyState} status: ${this.status}`); // output to console every time theres a change in ready state
@@ -104,7 +104,7 @@ function outputResult(data){
     // console.log("outputResult - data.query.search: ");  // uncomment this line to see what's inside the data.query.search object
     // console.log(data.query.search);                     // uncomment this line to see what's inside the data.query.search object
 
-    let result = `
+    const result = `
         <div id="resultCount">
             ${data.query.searchinfo.totalhits} articles found, 
             showing the first ${showItemAmount}
