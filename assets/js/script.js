@@ -12,12 +12,12 @@ let showItemAmount = 5; // global variable!
 initSearchTool(); // call initSearchTool()
 
 function initSearchTool(){
-    // add eventlistener to search button
+    // add eventlistener to search button, look for CLICK on the button
     document.querySelector("#searchButton").addEventListener("click", function(){
         doSearch();
     });
 
-    // add on key up listener to search input, look for ENTER (keyCode 13)
+    // add on key up listener to search input, look for ENTER (keyCode 13) in the input field
     document.querySelector("#searchInput").addEventListener("keyup", function(event){
         // console.log(event); // output the event to log to see what you can do with it
         if (event.keyCode == 13){
@@ -25,7 +25,7 @@ function initSearchTool(){
         }
     });
 
-    // add eventlistener to search result amount select
+    // add eventlistener to search result amount select, look for any CHANGE in the dropdown
     document.querySelector("#resultAmountSelector").addEventListener("change", function(){
         showItemAmount = this.value; // assign a new value to showItemAmount, take value from the selected option in the dropdown
         doSearch();
