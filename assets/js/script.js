@@ -1,5 +1,5 @@
 // JS by Dan Høegh
-// UCN MMD 2020
+// UCN MMD 2021
 
 // This code is for educational purposes
 // All code decision are based on the current level of the students
@@ -36,13 +36,9 @@ function doSearch(){
     const searchTerm = document.querySelector("#searchInput").value.trim(); // Get search term from input
     // check if searchterm is empty or just spaces
     if (searchTerm != ""){
-        // if (searchTerm == "pokemon"){
-        // 	poke.mon();
-        // } else {
-			setSpinner(true); // Turn on the spinner: call setSpinner with the parameter - true - so we're revealing the spinner
-			resultsClear(); // clear the results div
-			getDataWiki(searchTerm); // call the getDataWiki function, add searchTerm as parameter
-        // }
+        setSpinner(true); // Turn on the spinner: call setSpinner with the parameter - true - so we're revealing the spinner
+        resultsClear(); // clear the results div
+        getDataWiki(searchTerm); // call the getDataWiki function, add searchTerm as parameter
     }
 }
 
@@ -64,29 +60,17 @@ function resultsClear(){
 }
 
 function getDataWiki(searchTerm){
-    const xhttp = new XMLHttpRequest(); // Create the request (create an envelope for you "letter")
-    // in onreadystatechange we decide what to do when the response comes back from the server
-    xhttp.onreadystatechange = function() {
-        // console.log(`readystatechange. readyState: ${this.readyState} status: ${this.status}`); // output to console every time theres a change in ready state
-        // if we're ok, lets get the data
-        if (this.readyState == 4 && this.status == 200) {
-            // use try/catch to handle errors
-            try {
-                data = JSON.parse(this.responseText); // parse (convert) the responseText to a JSON object in the variable "data"
-                outputResult(data); // call outputData adding the data variable (the JSON object) as parameter
-                // console.log(...data.query.search);
-            } catch (error){
-                errorMessage(`Error parsing JSON: <span class="errorMsg">${error}</span>`); // If there's an error, the user is notified
+    fetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=${showItemAmount}&srsearch=${searchTerm}`) 
+        .then(response => {
+            if (!response.ok) { // test error handling by using the url: "http://httpstat.us/500" in fetch() above
+                throw Error(response.statusText);
             }
-        }
-        // if there was an error (status > 400), lets tell the user
-        if (this.readyState == 4 && this.status > 400) {
-            errorMessage("An error occured getting the data, please try again later"); 
-        }
-    };
-    // Open the request (put an address on the envelope)
-    xhttp.open("GET", `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=${showItemAmount}&srsearch=${searchTerm}`, true);
-    xhttp.send(); // send the request (mail the letter)
+            return response.json();
+        })
+        .then(data => outputResult(data))
+        .catch(error => {
+            errorMessage(`<span class="errorMsg">${error}</span>`); // If there's an error, the user is notified
+        });
 }
 
 // turn off spinner and output a nice error message in search result div
@@ -99,10 +83,10 @@ function outputResult(data){
     setSpinner(false); // call setSpinner with the parameter - false - so we're hiding the spinner
     // template result count information and the result list
 
-    // console.log("outputResult - data: ");   // uncomment this line to see what's inside the data object
-	// console.log(data);                      // uncomment this line to see what's inside the data object
-    // console.log("outputResult - data.query.search: ");  // uncomment this line to see what's inside the data.query.search object
-    // console.log(data.query.search);                     // uncomment this line to see what's inside the data.query.search object
+    // console.log("outputResult - data: ");                // uncomment this line to see what's inside the data object
+	// console.log(data);                                   // uncomment this line to see what's inside the data object
+    // console.log("outputResult - data.query.search: ");   // uncomment this line to see what's inside the data.query.search object
+    // console.log(data.query.search);                      // uncomment this line to see what's inside the data.query.search object
 
     const result = `
         <div id="resultCount">
