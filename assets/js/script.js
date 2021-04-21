@@ -102,15 +102,14 @@ function listResults(results){
     // console.log(results); // log results to console if you want to see what the JSON object looks like
     let itemList = ""; // initialize an empty itemList string
     // loop through results array in the JSON object
-    for (let i=0; i < results.length; i++){
-        let item = results[i]; // assign current item object to the item variable
-		itemList += 
+    results.forEach((item, index) => {
+        itemList += 
 		`<a class="article" target="_blank" href="https://en.wikipedia.org/?curid=${item.pageid}">
-                <h4>${item.title} (#${i+1})</h4>
+                <h4>${item.title} (#${index+1})</h4>
                 <p>
                     ${item.snippet} <br/>
                 </p>
             </a>`;
-    }
+    });
     return itemList; // return the finished itemList string
 }
