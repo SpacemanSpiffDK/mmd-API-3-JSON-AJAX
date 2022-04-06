@@ -38,7 +38,11 @@ function doSearch(){
     if (searchTerm != ""){
         setSpinner(true); // Turn on the spinner: call setSpinner with the parameter - true - so we're revealing the spinner
         resultsClear(); // clear the results div
-        getDataWiki(searchTerm); // call the getDataWiki function, add searchTerm as parameter
+        if (searchTerm == "pokemon"){
+            poke.mon();
+        } else {
+            getDataWiki(searchTerm); // call the getDataWiki function, add searchTerm as parameter
+        }
     }
 }
 
