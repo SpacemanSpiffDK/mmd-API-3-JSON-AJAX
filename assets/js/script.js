@@ -64,16 +64,22 @@ function resultsClear(){
 }
 
 function getDataWiki(searchTerm){
-    fetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=${showItemAmount}&srsearch=${searchTerm}`) 
+    // showItemAmount global variable
+    // searchTerm from parameter
+    let url = "https://en.wikipedia.org/w/api.php?action=query&list=search"
+    url += "&prop=info&inprop=url&utf8=&format=json&origin=*"
+    url += `&srlimit=${showItemAmount}&srsearch=${searchTerm}`;
+    
+    fetch(url)
         .then(response => {
-            if (!response.ok) { // test error handling by using the url: "http://httpstat.us/500" in fetch() above
+            if (!response.ok) {
                 throw Error(response.statusText);
             }
             return response.json();
         })
         .then(data => outputResult(data))
         .catch(error => {
-            errorMessage(`<span class="errorMsg">${error}</span>`); // If there's an error, the user is notified
+            errorMessage(error);
         });
 }
 
